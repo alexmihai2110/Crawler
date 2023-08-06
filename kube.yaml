@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: veridion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: veridion
+  template:
+    metadata:
+      labels:
+        app: veridion
+    spec:
+      containers:
+        - name: app
+          image: learnk8s/veridion-js:1.0.0
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
